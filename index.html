@@ -1,38 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors Game</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="choices">
-      <div class="choice" id="rock">
-        <img src="./Images/rock.png" />
-      </div>
-      <div class="choice" id="paper">
-        <img src="./Images/paper.png" />
-      </div>
-      <div class="choice" id="scissors">
-        <img src="./Images/scissors.png" />
-      </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="default">
+    <div class="container">
+        <header class="header">
+            <h1 class="title"><i class="fas fa-hand-rock"></i> Rock Paper Scissors</h1>
+            <div class="controls">
+                <div class="theme-selector">
+                    <button class="theme-btn theme-default active" data-theme="default" title="Default Theme"></button>
+                    <button class="theme-btn theme-dark" data-theme="dark" title="Dark Theme"></button>
+                    <button class="theme-btn theme-neon" data-theme="neon" title="Neon Theme"></button>
+                    <button class="theme-btn theme-nature" data-theme="nature" title="Nature Theme"></button>
+                </div>
+                <button class="reset-btn" onclick="resetGame()">
+                    <i class="fas fa-refresh"></i> Reset
+                </button>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="score-board">
+                <div class="player-score">
+                    <div class="score-label">You</div>
+                    <div class="score-value" id="playerScore">0</div>
+                </div>
+                <div class="vs">VS</div>
+                <div class="computer-score">
+                    <div class="score-label">Computer</div>
+                    <div class="score-value" id="computerScore">0</div>
+                </div>
+            </div>
+
+            <div class="game-display">
+                <div class="choices">
+                    <div class="choice-display">
+                        <div class="choice-icon" id="playerChoice">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="choice-label">Your Choice</div>
+                    </div>
+                    <div class="choice-display">
+                        <div class="choice-icon" id="computerChoice">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="choice-label">Computer's Choice</div>
+                    </div>
+                </div>
+
+                <div class="result" id="result">Choose your weapon!</div>
+
+                <div class="player-choices">
+                    <button class="choice-btn" onclick="playGame('rock')" title="Rock">
+                        <i class="fas fa-hand-rock"></i>
+                    </button>
+                    <button class="choice-btn" onclick="playGame('paper')" title="Paper">
+                        <i class="fas fa-hand-paper"></i>
+                    </button>
+                    <button class="choice-btn" onclick="playGame('scissors')" title="Scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Games</div>
+                    <div class="stat-value" id="totalGames">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Wins</div>
+                    <div class="stat-value" id="wins">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Win Rate</div>
+                    <div class="stat-value" id="winRate">0%</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Streak</div>
+                    <div class="stat-value" id="streak">0</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="score-board">
-      <div class="score">
-        <p id="user-score">0</p>
-        <p>You</p>
-      </div>
-      <div class="score">
-        <p id="comp-score">0</p>
-        <p>Comp</p>
-      </div>
-    </div>
-    <div class="msg-container">
-      <p id="msg">Play your move</p>
-    </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
